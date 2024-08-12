@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Toast from "./Toast";
+import ReactDOM from "react-dom";
 
 interface Toast {
   id: number;
@@ -35,19 +36,19 @@ const useToast = () => {
         }
     }
 
-    const toast = (
-        <div className="flex flex-col h-screen absolute inset-0 z-50">
-            {toasts.map((toast, index)=>(
-                <section key={index} className="flex flex-col mb-2 sm:ml-2 sm:my-1">
+    const toast = ReactDOM.createPortal(
+        <div className="flex flex-col fixed top-2 z-50">
+            {toasts.map((toast)=>(
+                <section key={toast.id} className="flex flex-col mb-2 sm:ml-2 sm:my-1">
                     <Toast
-                        key={index}
                         category={toast.category}
                         message={toast.message}
                         closeToast={() => closeToast(toast.id)}
                     />
                 </section>
             ))}
-        </div>
+        </div>,
+        document.body
     )
 
 

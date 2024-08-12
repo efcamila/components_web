@@ -19,7 +19,7 @@ interface ToastStyle {
 }
 
 const ToastStyle : ToastStyle = {
-  "toastStructure": "flex justify-between items-center",
+  "toastStructure": "flex justify-between items-center rounded-md",
   "toastStyle": "h-16 shadow-md sm:w-[450px] sm:py-2 sm:px-3",
   "toastCategory" : {
     "success" : {
@@ -74,7 +74,7 @@ const Toast = ({category="info",message,closeToast}:ToastProps) => {
         <h4 className="font-bold text-sm">{message.title}</h4>
         <span className="text-sm text-gray-800">{message.textInfo}</span>
       </div>
-      <div className="w-8 flex justify-center text-gray-800 hover:bg-white hover:rounded-xl hover:cursor-pointer mr-2">
+      <div className="w-8 flex justify-center text-gray-800 hover:bg-white hover:rounded-xl hover:cursor-pointer mr-2 sm:mr-0">
         <IoIosClose className="size-8" onClick={closeToast}/>
       </div>
     </div>
