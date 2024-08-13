@@ -37,7 +37,7 @@ const useToast = () => {
     }
 
     const toast = ReactDOM.createPortal(
-        <div className="flex flex-col fixed top-2 z-50 w-full">
+        <div className="flex flex-col fixed top-2 z-50 w-full sm:w-[450px]">
             {toasts.map((toast)=>(
                 <section key={toast.id} className="flex flex-col mb-2 sm:ml-2 sm:my-1">
                     <Toast
