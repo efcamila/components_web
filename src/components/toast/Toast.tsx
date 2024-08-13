@@ -20,31 +20,31 @@ interface ToastStyle {
 
 const ToastStyle : ToastStyle = {
   "toastStructure": "flex justify-between items-center rounded-md",
-  "toastStyle": "h-16 shadow-md sm:w-[450px] sm:py-2 sm:px-3",
+  "toastStyle": "h-16 shadow-md w-full sm:w-[450px] py-2 px-3",
   "toastCategory" : {
     "success" : {
         "bg" : "bg-green-50",
         "iconSvg": <IoCheckmarkCircle className="size-8 text-white"/>,
         "icon" : "w-10 h-10 mr-2 bg-green-400 rounded-md flex justify-center items-center hidden sm:flex",
-        "line" : "w-2 h-full bg-green-500 sm:hidden"
+        "line" : "w-1 rounded-full h-full bg-green-500 sm:hidden"
     },
     "info" : {
         "bg" : "bg-indigo-50",
         "iconSvg": <AiFillInfoCircle className="size-8 text-white"/>,
         "icon" : "w-10 h-10 mr-2 bg-blue-500 rounded-md flex justify-center items-center hidden sm:flex",
-        "line" : "w-2 h-full bg-blue-500 sm:hidden"
+        "line" : "w-1 rounded-full h-full bg-blue-500 sm:hidden"
     },
     "warning" : {
         "bg" : "bg-yellow-100",
         "iconSvg": <PiWarningCircleFill className="size-8 text-white"/>,
         "icon" : "w-10 h-10 mr-2 bg-yellow-400 rounded-md flex justify-center items-center hidden sm:flex",
-        "line" : "w-2 h-full bg-yellow-500 sm:hidden"
+        "line" : "w-1 rounded-full h-full bg-yellow-500 sm:hidden"
     },
     "danger" : {
         "bg" : "bg-red-100",
         "iconSvg": <IoCloseCircle className="size-8 text-white"/>,
         "icon" : "w-10 h-10 mr-2 bg-red-500 rounded-md flex justify-center items-center hidden sm:flex",
-        "line" : "w-2 h-full bg-red-500 sm:hidden"
+        "line" : "w-1 rounded-full h-full bg-red-500 sm:hidden"
     }
   }
 };
