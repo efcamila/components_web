@@ -25,6 +25,16 @@ const useToast = () => {
             setToasts((prevToasts) => [...prevToasts, newToast]);
             toastsMessages.current.add(options.message.textInfo)
         }
+
+        if (options.category === "danger"){
+            setTimeout(()=>{
+                closeToast(id)
+            },8000)
+        }else{
+            setTimeout(()=>{
+                closeToast(id)
+            },5000)
+        }
         
     }
 
