@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Table,
   TableHead,
@@ -7,6 +8,7 @@ import {
   TableColumn,
   TableCellInfo,
 } from "./TableAction";
+import TestModalTable from "../modals/TestModalTable";
 
 const users = [
   {
@@ -46,37 +48,62 @@ const users = [
   },
 ];
 
-const urls = {
-  view: "ver",
-  edit: "edit",
-  delete: "delete",
-};
-
 const TestTableAction = () => {
+  const [modal, setModal] = useState(false);
+  const [selectedId, setSelectedId] = useState<string>("");
+
+  const handleRowAction = (action: "view" | "edit" | "delete") => {
+    switch (action) {
+      case "view":
+        // useNavigate
+        break;
+      case "edit":
+        console.log(selectedId);
+        setModal(true);
+        break;
+      case "delete":
+        break;
+    }
+  };
+
   return (
-    <Table>
-      <TableHead actions>
-        <TableColumn>ID</TableColumn>
-        <TableColumn>Nombre</TableColumn>
-        <TableColumn>Edad</TableColumn>
-        <TableColumn>Email</TableColumn>
-        <TableColumn>Activo</TableColumn>
-      </TableHead>
-      <TableBody>
-        {users.map((user) => (
-          <TableRow key={user.id} id={user.id} actions={urls}>
-            <TableCell>{user.id}</TableCell>
-            <TableCell>
-              {user.nombre}
-              <TableCellInfo>{user.email}</TableCellInfo>
-            </TableCell>
-            <TableCell>{user.edad}</TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell>{user.activo ? "Si" : "No"}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <>
+      <TestModalTable
+        selectedId={selectedId}
+        value={modal}
+        onClose={() => setModal(false)}
+      />
+
+      <Table>
+        <TableHead actions>
+          <TableColumn>ID</TableColumn>
+          <TableColumn>Nombre</TableColumn>
+          <TableColumn>Edad</TableColumn>
+          <TableColumn>Email</TableColumn>
+          <TableColumn>Activo</TableColumn>
+        </TableHead>
+        <TableBody>
+          {users.map((user) => (
+            <TableRow
+              key={user.id}
+              onClick={(action: any) => {
+                setSelectedId(user.id.toString());
+                handleRowAction(action);
+              }}
+            >
+              <TableCell>{user.id}</TableCell>
+              <TableCell>
+                {user.nombre}
+                <TableCellInfo>{user.email}</TableCellInfo>
+              </TableCell>
+              <TableCell>{user.edad}</TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.activo ? "Si" : "No"}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </>
   );
 };
 
