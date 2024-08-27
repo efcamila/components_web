@@ -9,6 +9,7 @@ import {
   TableCellInfo,
 } from "./TableAction";
 import TestModalTable from "../modals/TestModalTable";
+import Badge from "../bagde/Badge";
 
 const users = [
   {
@@ -98,7 +99,7 @@ const TestTableAction = () => {
               </TableCell>
               <TableCell>{user.edad}</TableCell>
               <TableCell>{user.email}</TableCell>
-              <TableCell>{user.activo ? "Si" : "No"}</TableCell>
+              <TableCell>{user.activo ? <Badge position="normal" style="success-light">Activo</Badge> : <Badge position="normal" style="danger-light">No activo</Badge>}</TableCell>
             </TableRow>
           ))}
         </TableBody>

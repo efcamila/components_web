@@ -28,7 +28,7 @@ interface TableCellProps {
 
 const Table = ({ children }: BaseTableProps) => {
   return (
-    <div className="overflow-auto w-full max-w-[1200px] bg-gray-50 border border-gray-200 rounded-lg p-4 dark:bg-black-700 dark:border-black-800">
+    <div className="overflow-auto w-full max-w-[1200px] bg-white shadow-md rounded-lg p-4 dark:bg-black-700 ">
       <table className="w-full max-w-[1200px] border-collapse">
         {children}
       </table>
@@ -60,7 +60,7 @@ const TableColumn = ({ children }: TableHeadProps) => {
 };
 
 const TableBody = ({ children }: BaseTableProps) => {
-  return <tbody className="bg-gray-50 dark:bg-black-700">{children}</tbody>;
+  return <tbody className="bg-white dark:bg-black-700">{children}</tbody>;
 };
 
 const TableRow = ({ children, onClick }: TableRowProps) => {
