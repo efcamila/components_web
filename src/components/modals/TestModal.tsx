@@ -13,7 +13,7 @@ const TestModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className="m-4">
+    <section className="m-4 w-32">
       <Button
         type="button"
         style="primary"

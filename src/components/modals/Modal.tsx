@@ -13,7 +13,7 @@ interface ModalHeaderProps {
 
 const Modal = ({ size = "sm", children }: ModalProps) => {
   return (
-    <div className="min-w-screen min-h-screen bg-gray-950 bg-opacity-70 fixed inset-0 z-50 flex justify-center items-center dark:bg-gray-800 dark:bg-opacity-50">
+    <div className="min-w-screen min-h-screen bg-gray-950 bg-opacity-70 fixed inset-0 z-[70] flex justify-center items-center dark:bg-gray-800 dark:bg-opacity-50">
       <div
         className={`${
           size === "sm"
