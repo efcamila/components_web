@@ -31,6 +31,9 @@ export default {
           900: '#0A233A',
         }
       },
+      gridTemplateColumns: {
+        'auto': 'repeat(auto-fit, minmax(100px, 100px))',
+      },
     },
   },
   darkMode: "class",
