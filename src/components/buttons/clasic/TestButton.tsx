@@ -128,7 +128,7 @@ const TestButton = () => {
           onClick={() => setLove(!love)}
           value={love}
         >
-          <div className="flex gap-1">
+          <div className="flex justify-center gap-1 w-24">
             <AiFillLike size={20} />
             <p>Me gusta</p>
           </div>
@@ -178,9 +178,9 @@ const TestButton = () => {
           type="button"
           style="success"
           variant="light"
-          value={love}
           rounded="xl"
           onClick={() => setLove(!love)}
+          value={love}
         >
           <div className="flex gap-1 items-center text-base">
           <TbMessageChatbot size={30} />
