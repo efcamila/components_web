@@ -5,9 +5,10 @@ import { IoMoonSharp } from "react-icons/io5";
 
 interface ThemeButtonProps {
   colorSwitch: string;
+  vertical?:boolean;
 }
 
-const ThemeButton = ({colorSwitch}:ThemeButtonProps) => {
+const ThemeButton = ({colorSwitch, vertical}:ThemeButtonProps) => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -32,7 +33,7 @@ const ThemeButton = ({colorSwitch}:ThemeButtonProps) => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  return <ToggleSwitch value={theme === "dark"} onChange={onChange} color={colorSwitch} icons={{left:<FaSun/>,right:<IoMoonSharp/>}}/>;
+  return <ToggleSwitch value={theme === "dark"} onChange={onChange} color={colorSwitch} icons={{left:<FaSun/>,right:<IoMoonSharp/>}} vertical={vertical}/>;
 };
 
 export default ThemeButton;
