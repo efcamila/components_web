@@ -1,58 +1,50 @@
-import TestToast from "./components/toast/TestToast";
-import Theme from "./components/theme/Theme";
-import TestTableAction from "./components/tables/TestTableAction";
-import TestModal from "./components/modals/TestModal";
-import TestCard from "./components/cards/TestCard";
-import TestButton from "./components/buttons/clasic/TestButton";
 import "./index.css";
-import TestBadge from "./components/bagde/TestBadge";
-import TestNavbar from "./components/navigation/navbar/TestNavbar";
-import TestSidebar from "./components/navigation/sidebar/TestSidebar";
-import FooterTest from "./components/navigation/footer/FooterTest";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./layout/Layout";
+import PageButton from "./pages/PageButton";
+import PageBadge from "./pages/PageBadge";
+import PageCard from "./pages/PageCard";
+import PageModal from "./pages/PageModal";
+import PageTable from "./pages/PageTable";
+import PageNavigation from "./pages/PageNavigation";
+import PageToast from "./pages/PageToast";
+import Usage from "./examples/navbar/usage";
+import UsageSidebar from "./examples/sidebar/usage";
+import PageImage from "./pages/PageImage";
+import PageTheme from "./pages/PageTheme";
+import PageTitle from "./pages/PageTitle";
+import PageIntroduction from "./pages/PageIntroduction";
+import PageDocumentation from "./pages/PageDocumentation";
+import ScrollToTop from "./components/navigation/ScrollToTop";
+import PageTooltips from "./pages/PageTooltips";
 
 function App() {
   return (
-    <div className="dark:bg-black-600 bg-gray-100 w-full min-h-screen flex flex-col relative">
-      
-      <TestNavbar/>
-      <TestSidebar/>
-      {/* <TestToast /> */}
-<main className="flex-1 flex gap-8">
-
-</main>
-      {/* <section className="flex justify-around pt-5">
-        <h1 className="bg-transparent dark:text-white text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </section>*/}
-
-      <section className="w-full flex justify-center mt-4">
-        <TestTableAction />
-      </section>
-
-      <section className="w-full flex justify-center mt-4">
-        <TestTableAction />
-      </section>
-
-      <section className="w-full flex justify-center mt-4">
-        <TestModal />
-      </section>  
-
-        <section className="w-full flex justify-center mt-4">
-        <TestButton/>
-        </section>
-        
-        <section className="w-full flex justify-center mt-4 gap-10">
-        <TestBadge/>
-        </section> 
-        
-         <section className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 content-center place-items-center gap-4 p-8">
-        <TestCard/>
-        </section>  
-
-        
-        <FooterTest/>
-    </div>
+    <BrowserRouter>
+    <ScrollToTop/>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<PageIntroduction />} />
+        </Route>
+        <Route path="/docs" element={<Layout documentation />}>
+          <Route index element={<PageDocumentation />} />
+          <Route path="badge" element={<PageBadge />} />
+          <Route path="button" element={<PageButton />} />
+          <Route path="card" element={<PageCard />} />
+          <Route path="image" element={<PageImage />} />
+          <Route path="modal" element={<PageModal />} />
+          <Route path="table" element={<PageTable />} />
+          <Route path="navigation" element={<PageNavigation />} />
+          <Route path="theme" element={<PageTheme />} />
+          <Route path="text" element={<PageTitle />} />
+          <Route path="toast" element={<PageToast />} />
+          <Route path="tooltips" element={<PageTooltips />} />
+        </Route>
+        <Route path="/examples/navbar/usage" element={<Usage />} />
+        <Route path="/examples/sidebar/usage" element={<UsageSidebar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

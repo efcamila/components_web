@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import ToggleSwitch from "../buttons/switches/ToggleSwitch";
-import { FaSun } from "react-icons/fa";
-import { IoMoonSharp } from "react-icons/io5";
+import { IoSunnySharp } from "react-icons/io5";
+import { RxMoon } from "react-icons/rx";
 
 interface ThemeButtonProps {
-  colorSwitch: string;
+  colorSwitch?: string;
   vertical?:boolean;
+  icons?:{
+    left?:ReactElement;
+    right?:ReactElement;
+  }
 }
 
-const ThemeButton = ({colorSwitch, vertical}:ThemeButtonProps) => {
+const ThemeButton = ({
+  colorSwitch = "primary",
+  vertical,
+  icons = { left: <IoSunnySharp />, right: <RxMoon /> }
+}: ThemeButtonProps) => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -33,7 +41,7 @@ const ThemeButton = ({colorSwitch, vertical}:ThemeButtonProps) => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  return <ToggleSwitch value={theme === "dark"} onChange={onChange} color={colorSwitch} icons={{left:<FaSun/>,right:<IoMoonSharp/>}} vertical={vertical}/>;
+  return <ToggleSwitch value={theme === "dark"} onChange={onChange} color={colorSwitch} icons={icons} vertical={vertical}/>;
 };
 
 export default ThemeButton;

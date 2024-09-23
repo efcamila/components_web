@@ -1,33 +1,44 @@
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { Footer, FooterBrand, FooterContent, FooterCopy, FooterItems } from "./Footer";
+import { TbWorld } from "react-icons/tb";
+import { IoMail } from "react-icons/io5";
+import React from "react";
 
+const urls = [
+  {
+    name: 'Link 1'
+  },
+  {
+    name: 'Link 2'
+  },
+  {
+    name: 'Link 3'
+  }
+]
 const FooterTest = () => {
   return (
     <Footer>
       <FooterBrand>
-        <img src="/vite.svg" alt="" />
-        <p className="font-bold">Vite</p>
+        <p className="font-bold">brand</p>
       </FooterBrand>
       <FooterContent>
-        <FooterItems title="Options">
-          <a href="" className="hover:text-blue-400">Accesibility</a>
-          <a href="" className="hover:text-blue-400">Camera</a>
-          <a href="" className="hover:text-blue-400">Messages</a>
-        </FooterItems>
-        <FooterItems title="Actions">
-          <a href="" className="hover:text-blue-400">Add a element</a>
-          <a href="" className="hover:text-blue-400">Edit</a>
-          <a href="" className="hover:text-blue-400">Delete</a>
-        </FooterItems>
+          <FooterItems>
+          <div className="grid grid-cols-2 gap-3">
+          {urls.map((url, index) => (
+            <a href="#">{url.name}</a>
+          ))}
+        </div>
+          </FooterItems>
         <FooterItems>
           <div className="flex gap-5">
-            <FaFacebook size={20}/>
-            <FaWhatsapp size={20}/>
-            <FaInstagram size={20}/>
+            <a href=""><FaGithub size={22}/></a>
+            <a href=""><IoMail size={22}/></a>
+            <a href=""><TbWorld size={22}/></a>
           </div>
-        </FooterItems>
+            </FooterItems>
       </FooterContent>
-      <FooterCopy company="EfCamilaWeb"/>
+      
+      <FooterCopy company="brand"/>
     </Footer>
   );
 };

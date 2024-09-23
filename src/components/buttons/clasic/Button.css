@@ -1,0 +1,35 @@
+.button {
+@apply flex items-center
+}
+
+.button-sm{
+    @apply flex text-sm px-3 gap-[6px] h-8;
+}
+
+.button-md {
+    @apply flex text-base px-4 gap-2 h-10;
+}
+
+.button-lg {
+    @apply flex text-lg px-5 gap-2 h-12;
+}
+
+.primary {
+    @apply text-white bg-blue-400 hover:bg-blue-600
+}
+
+.primary-disabled {
+    @apply text-gray-300 bg-blue-800
+}
+
+.primary-border {
+    @apply bg-transparent text-blue-500 border border-blue-600 dark:text-blue-400 dark:hover:bg-blue-600/30 dark:hover:border-blue-700 transition ease-in-out duration-300 hover:bg-blue-600 hover:text-white cursor-pointer;
+}
+
+.primary-light {
+    @apply text-blue-600 bg-transparent transition ease-in-out duration-300 dark:text-blue-400 hover:bg-blue-300/50 dark:hover:bg-blue-800/30 cursor-pointer;
+}
+
+.primary-light-active {
+    @apply text-blue-600 bg-blue-300/50 dark:text-blue-400 dark:bg-blue-600/30 transition ease-in-out duration-300;
+}

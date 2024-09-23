@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import React,{ ReactNode } from "react";
 
 const Footer = ({ children }: { children: ReactNode }) => {
   return (
-    <footer className="w-full grid grid-cols-1 place-items-center backdrop-blur-lg py-6  min-h-16 gap-5">
+    <footer className="w-full grid grid-cols-1 place-items-center backdrop-blur-lg min-h-16 gap-5">
       <hr className="w-full border dark:border-black-500" />
-      <div className="w-full max-w-[1300px] grid grid-cols-1 md:grid-cols-2 content-around gap-5 px-6">
+      <div className="w-full max-w-[1300px] grid grid-cols-1 md:grid-cols-2 content-around gap-5 px-6  py-6 ">
         {children}
       </div>
     </footer>
@@ -34,7 +34,6 @@ const FooterItems = ({
   title?: string;
   children: ReactNode;
 }) => {
-
   return (
     <div
       className={`flex flex-col h-full gap-3 items-start text-black-400 dark:text-gray-300`}
@@ -54,7 +53,7 @@ const FooterCopy = ({ company }: { company: string }) => {
   return (
     <div className="grid col-span-1 md:col-span-2 place-items-center py-2">
       <p className="text-sm text-black-400 dark:text-gray-300">
-        &copy; {currentYear} {company}. All rights reserved.
+        &copy; {currentYear} {company}. Todos los derechos reservados.
       </p>
     </div>
   );

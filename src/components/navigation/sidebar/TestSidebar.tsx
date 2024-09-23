@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 import {
   Sidebar,
   SidebarBrand,
@@ -8,64 +8,44 @@ import {
   SidebarLink,
   SidebarMenu,
 } from "./Sidebar";
-import { IoAccessibility } from "react-icons/io5";
+import { FaCakeCandles } from "react-icons/fa6";
+import { MdMessage } from "react-icons/md";
+import { IoHomeSharp } from "react-icons/io5";
+import { FaHashtag } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import ThemeButton from "../../theme/Theme";
-import { MdEdit, MdOutlineMessage } from "react-icons/md";
-import { FaCamera, FaRegTrashAlt } from "react-icons/fa";
-import { IoIosAddCircle } from "react-icons/io";
+
+const urls = [
+  {
+    name: "Link 1",
+    icon: <IoHomeSharp />
+  },
+  {
+    name: "Link 2",
+    icon: <MdMessage />
+  },
+  {
+    name: "Link 3",
+    icon: <FaHashtag />
+  },
+];
 
 const TestSidebar = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [menu, setMenu] = useState(false);
   return (
     <Sidebar menu={menu} setMenu={setMenu}>
-       <SidebarContent>
-        <ThemeButton colorSwitch="primary-solid" vertical/>
-      </SidebarContent>
       <SidebarContent>
-        <SidebarBrand src="./vite.svg" alt="logo" brand="Vite"/>
+        <ThemeButton colorSwitch="primary" vertical/>
+        {urls.map((url, index) => (
+          <SidebarItem onClick={() => setActiveIndex(index)} key={index} isActive={index === activeIndex}>
+          <Link to="#" className="flex">
+            <SidebarIcon>{url.icon}</SidebarIcon>
+            <SidebarLink>{url.name}</SidebarLink>
+          </Link>
+          </SidebarItem>
+        ))}
       </SidebarContent>
-      <SidebarMenu/>
-      <SidebarContent>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-            <IoAccessibility></IoAccessibility>
-          </SidebarIcon>
-          <SidebarLink>Accesibility</SidebarLink>
-        </SidebarItem>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-          <FaCamera />
-          </SidebarIcon>
-          <SidebarLink>Camera</SidebarLink>
-        </SidebarItem>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-          <MdOutlineMessage />
-          </SidebarIcon>
-          <SidebarLink>Messages</SidebarLink>
-        </SidebarItem>
-      </SidebarContent>
-      <SidebarContent>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-          <FaRegTrashAlt />
-          </SidebarIcon>
-          <SidebarLink>Delete</SidebarLink>
-        </SidebarItem>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-          <MdEdit />
-          </SidebarIcon>
-          <SidebarLink>Edit</SidebarLink>
-        </SidebarItem>
-        <SidebarItem onClick={() => {}}>
-          <SidebarIcon>
-          <IoIosAddCircle />
-          </SidebarIcon>
-          <SidebarLink>Add a element</SidebarLink>
-        </SidebarItem>
-      </SidebarContent>
-     
     </Sidebar>
   );
 };

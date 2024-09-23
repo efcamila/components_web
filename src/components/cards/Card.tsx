@@ -1,122 +1,110 @@
+import React from "react";
 import { ReactNode } from "react";
-import ImageCard from "../images/Image";
+import Image from "../images/Image";
 import { CardProvider, useCardContext } from "./CardContext";
-import Badge from "../bagde/Badge";
+import "./Card.css";
+import classNames from "classnames";
+import Text from "../text/Text";
+
+interface CardProps {
+  children: ReactNode;
+  horizontal?: boolean;
+  hasPadding?: boolean;
+  className?: string;
+}
 
 const Card = ({
   children,
   horizontal = false,
   hasPadding = false,
-}: {
-  children: ReactNode;
-  horizontal?: boolean;
-  hasPadding?: boolean;
-}) => {
+  className = "",
+}: CardProps) => {
+  const cardClassNames = classNames(
+    "card",
+    className || "bg-gray-50 dark:bg-black-600",
+    {
+      "card-horizontal": horizontal,
+      "card-vertical": !horizontal,
+    }
+  );
+
   return (
     <CardProvider horizontal={horizontal} hasPadding={hasPadding}>
-      <section
-        className={`${
-          horizontal
-            ? "box-border w-96 grid grid-cols-2 grid-rows-[auto,auto,auto]"
-            : "w-80 flex flex-col"
-        } bg-white rounded-2xl shadow-md overflow-visible dark:bg-black-700 relative`}
-      >
-        {children}
-      </section>
+      <section className={cardClassNames}>{children}</section>
     </CardProvider>
   );
 };
 
-const CardHeader = ({ children }: { children: ReactNode }) => {
-  return <div className="px-4 py-2 gap-1 flex flex-col">{children}</div>;
-};
-
-const CardTitle = ({ children }: { children: ReactNode }) => {
-  return (
-    <h1 className="text-xl font-semibold text-black-700 dark:text-gray-200 flex flex-col">
-      {children}
-    </h1>
-  );
-};
-
-const CardSubtitle = ({ children }: { children: ReactNode }) => {
-  return (
-    <p className="text-sm text-black-600 dark:text-gray-400">{children}</p>
-  );
-};
-
-const CardBadge = ({
-  children,
-  style
-}: {
+interface CardSectionProps {
   children: ReactNode;
-  style?: string
-}) => {
+  className?:string;
+}
+
+const CardHeader = ({ children, className }: CardSectionProps) => {
+  return <div className={`px-4 py-2 gap-1 flex flex-col ${className}`}>{children}</div>;
+};
+
+const CardTitle = ({ children }: CardSectionProps) => {
+  return <Text.Heading2>{children}</Text.Heading2>;
+};
+
+const CardSubtitle = ({ children }: CardSectionProps) => {
+  return <Text.Subheading2>{children}</Text.Subheading2>;
+};
+
+const CardDetail = ({ children }: CardSectionProps) => {
   return (
-    <Badge position={"inside-left"} style={style}>
+    <Text.Heading2 className="font-bold text-2xl text-black-700 dark:text-gray-200">
       {children}
-    </Badge>
+    </Text.Heading2>
   );
 };
 
-const CardDetail = ({ children }: { children: ReactNode }) => {
-  return (
-    <h1 className="font-bold text-2xl text-black-700 dark:text-gray-200">
-      {children}
-    </h1>
-  );
+const CardBody = ({ children }: CardSectionProps) => {
+  return <div className="px-4 py-2 dark:text-gray-300">{children}</div>;
 };
 
-const CardBody = ({ children }: { children: ReactNode }) => {
-  return <div className="px-4 py-2">{children}</div>;
+const CardFooter = ({ children }: CardSectionProps) => {
+  const { horizontal } = useCardContext();
+
+  const footerClassNames = classNames("w-full flex flex-col", {
+    "px-3 py-2 gap-3 justify-center": horizontal,
+    "px-4 py-2 gap-2": !horizontal,
+  });
+
+  return <footer className={footerClassNames}>{children}</footer>;
 };
 
-const CardFooter = ({ children }: { children: ReactNode }) => {
-  const horizontal = useCardContext();
+interface CardImageProps {
+  src: string;
+  alt: string;
+}
 
-  return (
-    <footer
-      className={`w-full ${
-        horizontal ? "px-3 py-2 flex flex-col gap-3" : "px-4 pt-2"
-      }`}
-    >
-      {children}
-    </footer>
-  );
-};
-
-const CardImage = ({ src, alt }: { src: string; alt: string }) => {
+const CardImage = ({ src, alt }: CardImageProps) => {
   const { horizontal, hasPadding } = useCardContext();
 
-  const getClassName = (horizontal: boolean, hasPadding: boolean) => {
-    if (horizontal && hasPadding) {
-      return "row-span-3 col-span-1 py-2 px-3";
+  const imageClassNames = classNames(
+    "overflow-hidden max-h-[200px]",
+    {
+      "row-span-3 col-span-1 py-2 px-3": horizontal && hasPadding,
+      "row-span-3 col-span-1": horizontal,
+      "pt-3 px-3": hasPadding,
     }
-
-    if (horizontal) {
-      return "row-span-3 col-span-1";
-    }
-
-    if (hasPadding) {
-      return "pt-2 px-3";
-    }
-  };
+  );
 
   return (
-    <div className={`overflow-hidden rounded-lg ${getClassName(horizontal, hasPadding)}`}>
-      <ImageCard src={src} alt={alt} hasPadding={hasPadding} />
+    <div className={imageClassNames}>
+      <Image.Card src={src} alt={alt} hasPadding={hasPadding} />
     </div>
   );
 };
 
-export {
-  Card,
-  CardImage,
-  CardHeader,
-  CardTitle,
-  CardSubtitle,
-  CardBody,
-  CardFooter,
-  CardDetail,
-  CardBadge,
-};
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Footer = CardFooter;
+Card.Title = CardTitle;
+Card.Subtitle = CardSubtitle;
+Card.Image = CardImage;
+Card.Detail = CardDetail;
+
+export default Card;

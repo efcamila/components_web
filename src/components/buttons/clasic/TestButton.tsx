@@ -1,195 +1,133 @@
-import { CgHello } from "react-icons/cg";
-import { Button } from "./Button";
-import {
-  FaBell,
-  FaBellSlash,
-  FaRegStar,
-  FaStar,
-} from "react-icons/fa";
-import {
-  AiFillLike,
-  AiFillPauseCircle,
-  AiFillPlayCircle,
-} from "react-icons/ai";
+import { FaCheck } from "react-icons/fa";
+import Button from "./Button";
 import { useState } from "react";
-import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import { TbMessageChatbot } from "react-icons/tb";
+import Container from "../../container/Container";
+import { GrDislike, GrLike } from "react-icons/gr";
+import { FaMessage } from "react-icons/fa6";
+import Text from "../../text/Text"
+import React from "react";
+import TableInfoPages from "../../../pages/componentsPages/TableInfoPages";
+
+const data = [
+  {
+    "attribute":"children",
+    "type": "ReactNode",
+    "description": "Contenido que se renderiza dentro del Button.",
+    "default": "-"
+  },
+  {
+    "attribute":"size?",
+    "type": ["sm","md","lg"],
+    "description": "Define el tamaño del botón.",
+    "default": "md"
+  },
+  {
+    "attribute":"icon?",
+    "type": "boolean",
+    "description": "Indica si el botón debe mostrar solo un ícono.",
+    "default": "-"
+  },
+  {
+    "attribute":"disabled?",
+    "type": "boolean",
+    "description": "Define si el botón esta deshabilitado.",
+    "default": "-"
+  },
+  {
+    "attribute":"rounded?",
+    "type": ["none","sm","md","lg","xl","full"],
+    "description": "Nivel de redondeo de los bordes del botón.",
+    "default": "md"
+  },
+  {
+    "attribute":"onClick?",
+    "type": "() => void",
+    "description": "Función que se ejecuta cuando se hace un click sobre el botón.",
+    "default": "-"
+  },
+  {
+    "attribute":"ariaLabel?",
+    "type": "string",
+    "description": "Proporciona un texto alternativo para accesibilidad.",
+    "default": "-"
+  },
+  {
+    "attribute":"className?",
+    "type": "string",
+    "description": "Permite aplicar clases CSS personalizadas al botón.",
+    "default": "primary"
+  }
+]
 
 const TestButton = () => {
-  const [love, setLove] = useState(false);
+  const [like, setLike] = useState(false);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex gap-4">
-        <h1 className="w-14 dark:text-white">Solid</h1>
-        <Button type="button" style="primary">
-          Botón
-        </Button>
-        <Button type="button" style="black">
-          Botón
-        </Button>
-        <Button type="button" style="neutral">
-          Botón
-        </Button>
-        <Button type="button" style="danger">
-          Botón
-        </Button>
-        <Button type="button" style="warning">
-          Botón
-        </Button>
-        <Button type="button" style="success">
-          Botón
-        </Button>
-      </div>
-      <div className="flex gap-4">
-        <h1 className="w-14 dark:text-white">Border</h1>
-        <Button type="button" style="primary" rounded="full" variant="border">
-          Botón
-        </Button>
-        <Button type="button" style="black" rounded="full" variant="border">
-          Botón
-        </Button>
-        <Button type="button" style="neutral" rounded="full" variant="border">
-          Botón
-        </Button>
-        <Button type="button" style="danger" rounded="full" variant="border">
-          Botón
-        </Button>
-        <Button type="button" style="warning" rounded="full" variant="border">
-          Botón
-        </Button>
-        <Button type="button" style="success" rounded="full" variant="border">
-          Botón
-        </Button>
-      </div>
-      <div className="flex gap-4">
-        <h1 className="w-14 dark:text-white">Light</h1>
-        <Button type="button" style="primary" rounded="lg" variant="light">
-          Botón
-        </Button>
-        <Button type="button" style="black" rounded="lg" variant="light">
-          Botón
-        </Button>
-        <Button type="button" style="neutral" rounded="lg" variant="light">
-          Botón
-        </Button>
-        <Button type="button" style="danger" rounded="lg" variant="light">
-          Botón
-        </Button>
-        <Button type="button" style="warning" rounded="lg" variant="light">
-          Botón
-        </Button>
-        <Button type="button" style="success" rounded="lg" variant="light">
-          Botón
-        </Button>
-      </div>
-      <div className="flex gap-6">
-        <h1 className="w-14 dark:text-white">Icon</h1>
-        <Button type="button" style="primary" variant="icon">
-          <CgHello size={40} />
-        </Button>
-        <Button type="button" style="black" variant="icon">
-          <CgHello size={40} />
-        </Button>
-        <Button type="button" style="neutral" variant="icon">
-          <CgHello size={40} />
-        </Button>
-        <Button type="button" style="danger" variant="icon">
-          <CgHello size={40} />
-        </Button>
-        <Button type="button" style="warning" variant="icon">
-          <CgHello size={40} />
-        </Button>
-        <Button type="button" style="success" variant="icon">
-          <CgHello size={40} />
-        </Button>
-      </div>
-      <div className="flex gap-10">
-        <h1 className="w-14 dark:text-white">Combinate</h1>
-        <Button
-          type="button"
-          style="primary"
-          variant="solid"
-          rounded="xl"
-          onClick={() => setLove(!love)}
-          value={love}
-        >
-          {love ? (
-            <AiFillPauseCircle size={27} />
-          ) : (
-            <AiFillPlayCircle size={27} />
-          )}
-        </Button>
-        <Button
-          type="button"
-          style="black"
-          variant="border"
-          rounded="xl"
-          onClick={() => setLove(!love)}
-          value={love}
-        >
-          <div className="flex justify-center gap-1 w-24">
-            <AiFillLike size={20} />
-            <p>Me gusta</p>
-          </div>
-        </Button>
-        <Button
-          type="button"
-          style="neutral"
-          variant="light"
-          isIcon
-          rounded="xl"
-          value={love}
-          onClick={() => setLove(!love)}
-        >
-          {love ? (
-            <div className="flex gap-1 items-center">
-              <FaBell size={20} />
-            </div>
-          ) : (
-            <FaBellSlash size={24} />
-          )}
-        </Button>
-        <Button
-          type="button"
-          isIcon
-          style="danger"
-          variant="solid"
-          rounded="xl"
-          onClick={() => setLove(!love)}
-          value={love}
-        >
-          {love ? (
-            <IoIosHeart className="w-6 h-6" />
-          ) : (
-            <IoIosHeartEmpty className="w-6 h-6" />
-          )}
-        </Button>
-        <Button
-          type="button"
-          style="warning"
-          variant="icon"
-          value={love}
-          onClick={() => setLove(!love)}
-        >
-          {love ? <FaStar size={30} /> : <FaRegStar size={30} />}
-        </Button>
-        <Button
-          type="button"
-          style="success"
-          variant="light"
-          rounded="xl"
-          onClick={() => setLove(!love)}
-          value={love}
-        >
-          <div className="flex gap-1 items-center text-base">
-          <TbMessageChatbot size={30} />
-          <p>Chats</p>
-          </div>
-        </Button>
-      </div>
+    <div className="flex flex-col gap-6 py-6">
+      <TableInfoPages data={data}/>
+      
+      <Container col className="gap-3">
+        <Text.Heading3>Sizes</Text.Heading3>
+        <Container className="container-rounded">
+          <Button size="sm" rounded="full">
+            <FaCheck />
+            Small
+          </Button>
+          <Button size="md" rounded="full">
+            <FaCheck />
+            Medium
+          </Button>
+          <Button size="lg" rounded="full">
+            <FaCheck />
+            Large
+          </Button>
+        </Container>
+      </Container>
+
+      <Container col className="gap-3">
+      <Text.Heading3>Icon</Text.Heading3>
+        <Container className="container-rounded">
+          <Button
+            icon
+            className="primary-light-active">
+            <FaMessage/>
+          </Button>
+        </Container>
+      </Container>
+
+      <Container col className="gap-3">
+      <Text.Heading3>Disabled</Text.Heading3>
+        <Container className="container-rounded">
+          <Button rounded="full" disabled>
+            Disabled
+          </Button>
+        </Container>
+      </Container>
+
+      <Container col className="gap-3">
+      <Text.Heading3>Rounded</Text.Heading3>
+        <Container className="container-rounded">
+          <Button rounded="none">None</Button>
+          <Button rounded="sm">Small</Button>
+          <Button rounded="md">Medium</Button>
+          <Button rounded="lg">Large</Button>
+          <Button rounded="xl">Extra Large</Button>
+          <Button rounded="full">Full</Button>
+        </Container>
+      </Container>
+
+      <Container col className="gap-3">
+      <Text.Heading3>On Click</Text.Heading3>
+        <Container className="p-5 gap-3 items-center border border-gray-200 rounded-xl">
+          <Button
+            rounded="lg"
+            onClick={() => setLike(prevLike => !prevLike)}
+          >
+            {like ? <><GrDislike/> I dont like</> : <><GrLike /> I like</>}
+          </Button>
+        </Container>
+      </Container>
     </div>
   );
 };
-
 export default TestButton;

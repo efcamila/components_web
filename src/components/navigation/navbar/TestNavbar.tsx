@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import ThemeButton from "../../theme/Theme";
 import {
   Navbar,
@@ -13,11 +13,11 @@ const TestNavbar = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <Navbar menu={showMenu} setMenu={setShowMenu}>
+    <>
+    <Navbar menu={showMenu} setMenu={setShowMenu} className="z-[40]">
       <NavbarContent>
         <NavbarBrand>
-          <img src="/vite.svg" alt="" />
-          <p className="font-bold">Vite</p>
+          <p className="font-bold">web by camila</p>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent hidden>
@@ -39,25 +39,13 @@ const TestNavbar = () => {
         >
           <a href="#">Link 3</a>
         </NavbarItem>
-        <NavbarItem
-          isActive={activeIndex === 3}
-          onClick={() => setActiveIndex(3)}
-        >
-          <a href="#">Link 4</a>
-        </NavbarItem>
-        <NavbarItem
-          isActive={activeIndex === 4}
-          onClick={() => setActiveIndex(4)}
-        >
-          <a href="#">Link 5</a>
-        </NavbarItem>
-        
       </NavbarContent>
       <NavbarContent>
         <ThemeButton colorSwitch="primary-solid" />
         <NavbarMenu/>
       </NavbarContent>
     </Navbar> 
+    </>
   );
 };
 

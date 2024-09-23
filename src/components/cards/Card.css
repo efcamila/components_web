@@ -1,0 +1,11 @@
+.card {
+  @apply rounded-2xl shadow-md overflow-visible m-1 relative;
+}
+
+.card-horizontal {
+  @apply box-border grid grid-cols-2;
+}
+
+.card-vertical {
+  @apply flex flex-col;
+}

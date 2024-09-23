@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import "./Switch.css"
 
 interface SwitchProps {
   value: boolean;
@@ -14,7 +15,7 @@ interface SwitchProps {
 const ToggleSwitch = ({
   value = false,
   onChange,
-  color = "bg-blue-500",
+  color = "primary",
   icons,
   vertical = false
 }: SwitchProps) => {
@@ -23,12 +24,10 @@ const ToggleSwitch = ({
     {vertical ? (
       <div
       onClick={onChange}
-      className="flex flex-col justify-center gap-2 w-9 h-[70px] rounded-full relative items-center bg-gray-200 shadow-sm cursor-pointer"
+      className="flex flex-col justify-center gap-2  w-9 h-[65px] rounded-full relative items-center bg-gray-200 shadow-sm cursor-pointer"
       >
-      <span
-        className={`${
-          value === true ? "mt-[2rem]" : "-mt-7"
-          } ${color} h-8 w-8 rounded-full transition-all duration-300 flex flex-col items-center justify-center absolute left-[3px]`}
+        <span
+        className={`transition-top-bottom duration-300 ease-in-out ${value === true ? "bottom-[2px]" : "top-[2px]" } ${color} h-8 w-8 rounded-full flex flex-col items-center justify-center absolute`}
           ></span>
       <span className="flex flex-col justify-center items-center z-20">
         {icons?.left &&
@@ -50,14 +49,14 @@ const ToggleSwitch = ({
     ):(
       <div
       onClick={onChange}
-      className="flex justify-center gap-2 w-[70px] h-9 rounded-full relative items-center bg-gray-200 shadow-sm cursor-pointer"
+      className="flex justify-center gap-2 w-[65px] h-9 rounded-full relative items-center bg-gray-200 shadow-sm cursor-pointer"
       >
       <span
         className={`${
-          value === true ? "ml-[2.2rem]" : "ml-1"
-          } ${color} h-8 w-8 rounded-full transition-all duration-300 flex items-center justify-center absolute left-0`}
+          value === true ? "right-[2px]" : "left-[2px]"
+          } ${color} h-8 w-8 rounded-full transition-all duration-300 flex items-center justify-center absolute`}
           ></span>
-      <span className="flex justify-center items-center z-20 mr-1">
+      <span className="flex justify-center items-center z-20">
         {icons?.left &&
           React.cloneElement(icons?.left, {
             className: `w-[21px] h-[21px] ${

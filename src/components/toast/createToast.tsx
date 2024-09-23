@@ -3,13 +3,14 @@ import Toast from "./Toast";
 import ReactDOM from "react-dom";
 
 interface Toast {
-  id: number;
-  category: "success" | "info" | "warning" | "danger";
-  message: {
-    title: string;
-    textInfo: string;
-  };
-}
+    id: number;
+    category: "success" | "info" | "warning" | "danger";
+    message: {
+      title: string;
+      textInfo: string;
+    };
+    time?: boolean; // Propiedad opcional
+  }
 
 const useToast = () => {
     const [toasts, setToasts] = useState<Toast[]>([]);
@@ -19,6 +20,8 @@ const useToast = () => {
     const createToast = (options:Omit<Toast,"id">) => {
         const id = lastIdRef.current + 1;
         lastIdRef.current = id;
+
+        const {time} = options;
         
         if (!toastsMessages.current.has(options.message.textInfo)){
             const newToast: Toast = {...options, id};
@@ -26,11 +29,12 @@ const useToast = () => {
             toastsMessages.current.add(options.message.textInfo)
         }
 
-        if (options.category === "danger"){
+        if (options.category === "danger" && time){
             setTimeout(()=>{
                 closeToast(id)
             },8000)
-        }else{
+        }
+        if (options.category !== "danger" && time){
             setTimeout(()=>{
                 closeToast(id)
             },5000)

@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 *{
-  /* border: red solid 3px; */
+  /* border: red solid 1px; */
+}
+
+body{
+  font-family:'Inter';
 }
 
 #root {
   width: 100%;
+}
+
+:root {
+  --navbar-height: 4rem; /* Definido como referencia para la variable original */
 }
 
 ::-webkit-scrollbar {
@@ -16,23 +24,58 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: #5c627e;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: #3e4254;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #bebdbd;
   border-radius: 6px;
 }
 
-/*Button*/
+.container-heading-pages {
+  @apply mt-2 flex flex-col gap-1;
+}
 
-.button {
-    @apply h-10 w-full text-sm font-normal flex justify-center items-center text-center;
+.text-title {
+  @apply text-black-600 dark:text-gray-50;
+}
+
+.text-content {
+  @apply text-black-500 dark:text-gray-200;
+}
+
+.text-modern{
+  background-image: linear-gradient(45deg, #7cc4ff,#c7009c, #f39912);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all ease-in-out 5ms;
+}
+
+.container-rounded {
+  @apply p-5 gap-3 items-center border border-gray-200 rounded-xl
+}
+
+.badge-props {
+  @apply bg-gray-200 px-2 rounded-xl font-mono dark:bg-black-900/50 dark:text-gray-100 text-sm font-normal py-0
+}
+
+.componente-props {
+   @apply text-cyan-600 bg-cyan-400/10 dark:bg-blue-200/20 dark:text-cyan-400 mb-2 py-1 px-3 rounded-full w-fit;
+}
+
+.button-getstart{
+  background: linear-gradient(45deg, #5287b3,#20145a);
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-getstart:hover{
+  background: linear-gradient(45deg, #20145a, #5287b3);
 }
 
 /*PRIMARY*/
@@ -53,7 +96,7 @@
 
 /* Light Variant */
 .primary-light {
-  @apply text-blue-600 bg-blue-300/50 dark:text-blue-400 dark:bg-blue-800/30;
+  @apply text-blue-600 hover:bg-blue-300/50 dark:text-blue-400 hover:dark:bg-blue-800/30;
 }
 
 /* Icon Variant */
@@ -218,6 +261,3 @@
     @apply text-green-700/30 ;
   }
   
-  .transition-height {
-    transition: height 300ms ease-in-out;
-  }

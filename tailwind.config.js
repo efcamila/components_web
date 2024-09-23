@@ -34,6 +34,9 @@ export default {
       gridTemplateColumns: {
         'auto': 'repeat(auto-fit, minmax(100px, 100px))',
       },
+      transitionProperty: {
+        'top-bottom': 'top, bottom',
+      },
     },
   },
   darkMode: "class",

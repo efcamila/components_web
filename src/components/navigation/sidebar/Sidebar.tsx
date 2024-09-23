@@ -6,26 +6,31 @@ import React, {
 } from "react";
 import { NavbarProvider, useNavbarContext } from "../navbar/NavbarContext";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Text from "../../text/Text";
 
 const Sidebar = ({
   children,
   menu,
   setMenu,
+  noIcon,
 }: {
   children: ReactNode;
   menu: boolean;
   setMenu: Dispatch<SetStateAction<boolean>>;
+  noIcon?: boolean;
 }) => {
+  const getPositionSidebar = () => {
+    return noIcon ? ` ${menu ? "w-5/6 sm:w-64" : "w-0"}` : `${menu ? "w-64" : "w-16"}`;
+  };
+
   return (
     <NavbarProvider menu={menu} setMenu={setMenu}>
       <nav
-        className={`min-h-screen fixed z-[60] shadow-xl backdrop-blur-2xl bg-gray-200/30 dark:bg-black-800/50 pt-2 pb-5 transform transition-all duration-300 ease-in-out ${
-          menu ? "w-64" : "w-16"
-        }`}
+        className={`${getPositionSidebar()} fixed top-0 bottom-0 z-[80] shadow-xl backdrop-blur-2xl bg-gray-200/30 dark:bg-black-800/50 py-4 transform transition-all duration-300 ease-in-out overflow-y-auto overflow-x-hidden`}
+        onMouseEnter={() => setMenu(true)}
+        onMouseLeave={() => setMenu(false)}
       >
-        <header className="flex flex-col gap-5">
-          {children}
-        </header>
+        <header className="flex flex-col gap-5 min-h-full">{children}</header>
       </nav>
     </NavbarProvider>
   );
@@ -47,7 +52,7 @@ const SidebarBrand = ({
         <img src={src} alt={alt} width={40} height={40} />
       </div>
       <div
-        className={`text-2xl font-bold dark:text-black-100 ${
+        className={`text-2xl font-bold dark:text-gray-100 ${
           menu ? "flex items-center" : "hidden"
         }`}
       >
@@ -61,9 +66,7 @@ const SidebarMenu = () => {
   const { menu, setMenu } = useNavbarContext();
   return (
     <div
-      className={`absolute top-2 transform -right-3 bg-white z-[70] cursor-pointer rounded-full ${
-        menu ? "translate-x-[calc(10%)]" : "translate-x-0"
-      }`}
+      className={`w-8 h-8 z-[70] cursor-pointer rounded-full bg-gray-200 flex items-center justify-center absolute -right-4`}
       onClick={() => setMenu(!menu)}
     >
       {menu ? (
@@ -74,17 +77,24 @@ const SidebarMenu = () => {
     </div>
   );
 };
-const SidebarContent = ({ children }: { children: ReactNode }) => {
+const SidebarContent = ({
+  children,
+  title,
+}: {
+  children: ReactNode;
+  title?: string;
+}) => {
   const { menu } = useNavbarContext();
 
   return (
     <ul
-      className={`flex flex-col ${
+      className={`flex flex-col gap-3 ${
         menu
           ? "w-44 ml-5 items-start justify-start"
           : "w-16 max-w-16 ml-0 items-center justify-center"
       } transform transition-all duration-100 ease-in-out`}
     >
+      <Text.Subheading3>{title}</Text.Subheading3>
       {children}
     </ul>
   );
@@ -103,9 +113,9 @@ const SidebarItem = ({
 
   return (
     <li
-      className={`h-10 flex items-center cursor-pointer text-black-500 group hover:bg-blue-400 hover:text-white dark:hover:text-white dark:text-black-100 rounded-lg ${
-        isActive ? "bg-blue-400" : ""
-      } ${menu ? "pr-4 w-44" : "pr-0 w-auto"}`}
+      className={`flex items-center cursor-pointer  dark:hover:text-white dark:text-gray-300 border border-transparent hover:border-l-blue-400 ${
+        isActive ? "border-l-blue-400 text-blue-400" : "text-black-500"
+      } ${menu ? "w-44" : "w-auto"}`}
       onClick={onClick}
     >
       {children}
@@ -114,15 +124,15 @@ const SidebarItem = ({
 };
 
 interface SidebarIconProps {
-  children: ReactElement; // Asegúrate de que children es un elemento React
+  children: ReactElement;
 }
 const SidebarIcon = ({ children }: SidebarIconProps) => {
   return (
     <div
-      className={`flex items-center justify-center w-12 h-10 max-w-12 max-h-10 transition-colors duration-100`}
+      className={`flex items-center justify-center w-12  max-w-12 max- transition-colors duration-100`}
     >
       {React.cloneElement(children, {
-        className: `w-5 h-5`,
+        className: `w-6 h-6`,
       })}
     </div>
   );
@@ -134,13 +144,21 @@ const SidebarLink = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div
-        className={`text-nowrap h-10 max-h-10 transition-colors duration-100 ${
+        className={`text-nowrap transition-colors duration-100 ${
           menu ? "flex items-center ml-4" : "hidden"
         }`}
       >
         {children}
       </div>
-      <span className={` ${menu ? 'hidden' : 'text-nowrap px-3 absolute left-16 z-[80] bg-blue-400 p-2 rounded-lg hidden group-hover:flex'}`}>{children}</span>
+      <span
+        className={` ${
+          menu
+            ? "hidden"
+            : "text-nowrap px-3 absolute left-16 z-[80] bg-blue-400 p-2 rounded-lg hidden group-hover:flex"
+        }`}
+      >
+        {children}
+      </span>
     </>
   );
 };
