@@ -1,0 +1,31 @@
+.tooltip {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip-text{
+    white-space: nowrap;
+    z-index: 20;
+    visibility: hidden;
+    position: absolute;
+    padding: 4px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    top: -35px;
+}
+
+.tooltip-style {
+    background-color: #515151;
+    color: white;
+    font-size: small;
+    border-radius: 5px;
+}
+
+.tooltip:hover .tooltip-text{
+    visibility: visible;
+}
