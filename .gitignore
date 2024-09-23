@@ -12,11 +12,6 @@ dist
 dist-ssr
 *.local
 *.test.tsx
-layout
-pages
-data
-examples
-public
 
 # Editor directories and files
 .vscode/*
