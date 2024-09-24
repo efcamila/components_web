@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import "./Modal.css";
-import { ReactNode } from "react";
+import React,{ ReactNode } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import Text from "../text/Text";
 

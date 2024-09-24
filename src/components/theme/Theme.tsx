@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import React,{ ReactElement, useEffect, useState } from "react";
 import ToggleSwitch from "../buttons/switches/ToggleSwitch";
 import { IoSunnySharp } from "react-icons/io5";
 import { RxMoon } from "react-icons/rx";

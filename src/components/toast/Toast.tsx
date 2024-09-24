@@ -2,6 +2,7 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import { IoIosClose } from "react-icons/io";
 import { IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
 import { PiWarningCircleFill } from "react-icons/pi";
+import React from "react";
 
 interface ToastCategory {
   bg: string,
