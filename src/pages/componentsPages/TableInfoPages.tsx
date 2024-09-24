@@ -33,18 +33,10 @@ const TableInfoPages = ({ data }: DataProps) => {
               <div className="flex-wrap flex gap-3 font-mono py-1">
                 {Array.isArray(data.type) ? (
                   data.type.map((type, index) => (
-                    <Badge
-                      position="normal"
-                      key={`${type}-${index}`}
-                      className="badge-props mr-1"
-                    >
-                      {type}
-                    </Badge>
+                      <span className="badge-props mr-1" key={`${type}-${index}`}>{type}</span>
                   ))
                 ) : (
-                  <Badge position="normal" className="badge-props">
-                    {data.type}
-                  </Badge>
+                  <span className="badge-props">{data.type}</span>
                 )}
               </div>
             </Table.Cell>
