@@ -62,6 +62,13 @@ const FooterLayout = () => {
                 )}
               </Tooltip>
             </button>
+             <a
+              href="https://portfolio-wbc.vercel.app/"
+              target="_blank"
+              className="hover:text-black-800 dark:hover:text-white"
+            >
+              <TbWorld size={22} />
+            </a>
           </div>
         </FooterItems>
       </FooterContent>
