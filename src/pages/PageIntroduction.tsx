@@ -126,7 +126,7 @@ const PageIntroduction = () => {
 
       <div className="flex justify-center mt-8">
         <Link to="/docs">
-          <Button size="lg" className="black-solid dark:white-solid">
+          <Button size="lg" className="black-solid dark:bg-white dark:text-black-900">
             Conoce más
             <LuExternalLink />
           </Button>
