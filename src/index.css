@@ -78,6 +78,13 @@ body{
   background: linear-gradient(45deg, #20145a, #5287b3);
 }
 
+/* OTHER */
+
+.white-solid {
+  @apply bg-white text-black-900;
+}
+
+
 /*PRIMARY*/
 
 /* Solid Variant */

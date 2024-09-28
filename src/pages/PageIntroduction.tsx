@@ -52,7 +52,7 @@ const PageIntroduction = () => {
           </h1>
         </div>
         <Text.Subheading2 className="text-center text-black-300 font-medium dark:text-gray-100">
-          React.js + TypeScript
+          React + TypeScript + Tailwind CSS
         </Text.Subheading2>
       </div>
       <div className="sm:text-center mt-14 flex flex-col gap-8 md:mx-24 max-w-[800px]">
@@ -126,7 +126,7 @@ const PageIntroduction = () => {
 
       <div className="flex justify-center mt-8">
         <Link to="/docs">
-          <Button size="lg" className="black-solid">
+          <Button size="lg" className="black-solid dark:white-solid">
             Conoce más
             <LuExternalLink />
           </Button>
