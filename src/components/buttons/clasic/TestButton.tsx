@@ -63,7 +63,7 @@ const TestButton = () => {
   const [like, setLike] = useState(false);
 
   return (
-    <div className="flex flex-col gap-6 py-6">
+    <div className="flex flex-col gap-6 pt-6">
       <TableInfoPages data={data}/>
       
       <Container col className="gap-3">

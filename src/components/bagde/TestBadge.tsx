@@ -38,7 +38,7 @@ const data = [
 
 const TestBadge = () => {
   return (
-    <div className="flex flex-col gap-2 py-6">
+    <div className="flex flex-col gap-2 pt-6">
       <TableInfoPages data={data}/>
 
       <Text.Heading3 className="mt-7 mb-3 dark:text-white">

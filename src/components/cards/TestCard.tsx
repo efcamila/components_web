@@ -36,7 +36,7 @@ const data = [
 
 const TestCard = () => {
   return (
-    <div className="flex flex-col gap-8 py-4">
+    <div className="flex flex-col gap-8 pt-4">
       <TableInfoPages data={data}/>
 
       <Container col className="gap-5">

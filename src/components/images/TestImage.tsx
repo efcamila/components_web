@@ -41,13 +41,13 @@ const dataImageCard = [
 
 const TestImage = () => {
   return (
-    <div className="flex flex-col gap-5 mb-4">
-      <div className="flex flex-col gap-3 my-5">
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-3 mt-5">
         <Text.Heading3>All Images</Text.Heading3>
         <TableInfoPages data={data} />
       </div>
 
-      <div className="flex flex-col gap-3 my-5">
+      <div className="flex flex-col gap-3 mt-5">
         <Text.Heading3>ImageCard</Text.Heading3>
         <TableInfoPages data={dataImageCard} />
 
@@ -73,12 +73,12 @@ const TestImage = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 my-5">
+      <div className="flex flex-col gap-3 mt-5">
         <Text.Heading3>ImageAvatar</Text.Heading3>
         <TableInfoPages data={dataImageAvatar}/>
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-wrap items-baseline gap-8 h-full md:h-[300px]">
+        <div className="flex flex-wrap items-baseline gap-8 h-full md:h-[100px]">
           <section className="flex flex-col justify-center items-center gap-2">
             <Image.Avatar src="/avatar.jpg" alt="img1" size="xs" />
             <Text.Content3>Extra Small</Text.Content3>
