@@ -20,7 +20,7 @@ const ImageLoader = ({ children, className }) => {
         onError: handleError,
       })}
       {isLoading && (
-      <div className="absolute h-full w-full bg-white">
+      <div className={`absolute h-full bg-white ${className}`}>
         <div
           className={`absolute top-0 bg-gray-400 flex items-center justify-center animate-pulse ${className}`}
         ></div>
