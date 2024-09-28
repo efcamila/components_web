@@ -4,6 +4,7 @@ import NavbarLayout from "./Navbar";
 import SidebarLayout from "./Sidebar";
 import FooterLayout from "./Footer";
 import React, { useEffect, useState } from "react";
+import PaginationLayout from "./Pagination";
 
 const Layout = ({ documentation }: { documentation?: boolean }) => {
   const [menu, setMenu] = useState(false);
@@ -25,6 +26,7 @@ const Layout = ({ documentation }: { documentation?: boolean }) => {
             </section>
             <section className="md:pl-[19.5rem] mt-5">
               <Outlet />
+            <PaginationLayout/>
             </section>
             <section className="md:pl-[19.5rem] md:mt-[2rem]">
               <FooterLayout />
