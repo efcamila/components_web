@@ -62,7 +62,11 @@ const FooterLayout = () => {
                 )}
               </Tooltip>
             </button>
+<<<<<<< HEAD
             <a
+=======
+             <a
+>>>>>>> 88e9f86d16f6061229c53fdc6b185e0147cc38f0
               href="https://portfolio-wbc.vercel.app/"
               target="_blank"
               className="hover:text-black-800 dark:hover:text-white"
