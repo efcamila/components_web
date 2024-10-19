@@ -39,7 +39,7 @@ const PageIntroduction = () => {
         <div className="flex flex-col">
           <Text.Headingxl className="sm:text-center font-normal text-gray-700 dark:text-white">
             <span className="flex justify-center">
-              Componentes
+              Componentesretre
             </span>
           </Text.Headingxl>
           <h1
