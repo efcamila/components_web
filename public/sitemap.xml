@@ -1,11 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <url>
-    <loc>https://componentes-wbc.vercel.app/</loc>
-    <lastmod>2024-10-19T16:59:59+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.00</priority>
-  </url>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://componentes-wbc.vercel.app/</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/docs</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/badge</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/button</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/card</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/image</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/modal</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/table</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/navigation</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/theme</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/text</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/toast</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/tooltips</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/examples/navbar/usage</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://componentes-wbc.vercel.app/examples/sidebar/usage</loc>
+	<lastmod>2024-10-20T00:23:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
 </urlset>
- 
