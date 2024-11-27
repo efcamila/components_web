@@ -14,16 +14,13 @@ const PageIntroduction = () => {
 
   function getRandomHexColor() {
     // Genera un color hexadecimal aleatorio
-    console.log("hola");
     return `#${Math.floor(Math.random() * 0xffffff)
       .toString(16)
       .padStart(6, "0")}`;
   }
 
   function getRandomColor() {
-    // Obtén dos colores hexadecimales aleatorios
     const color = getRandomHexColor();
-    console.log(color);
     return color;
   }
 
@@ -39,7 +36,7 @@ const PageIntroduction = () => {
         <div className="flex flex-col">
           <Text.Headingxl className="sm:text-center font-normal text-gray-700 dark:text-white">
             <span className="flex justify-center">
-              Componentesretre
+              Componentes
             </span>
           </Text.Headingxl>
           <h1
